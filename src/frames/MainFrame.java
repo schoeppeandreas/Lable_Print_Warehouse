@@ -51,7 +51,7 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnButton = new JButton("Button 1");
+		JButton btnButton = new JButton("Load");
 		btnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = new DefaultTableModel();
