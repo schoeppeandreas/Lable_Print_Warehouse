@@ -58,6 +58,7 @@ public class MainFrame {
 				model.addColumn("location");
 				model.addColumn("technican");
 				model.addColumn("partnumber");
+				model.addColumn("isPrinted");
 				
 				List<WarehouseData> arr = new ArrayList<WarehouseData>();
 				

@@ -5,6 +5,7 @@ public class WarehouseData {
 	private String location;
 	private String technican;
 	private String partnumber;
+	private Boolean isPrinted = true; 
 	
 	public WarehouseData(String location, String technican, String partnumber) {
 		super();
@@ -18,6 +19,14 @@ public class WarehouseData {
 	}
 	
 	
+	public Boolean getIsPrinted() {
+		return isPrinted;
+	}
+
+	public void setIsPrinted(Boolean isPrinted) {
+		this.isPrinted = isPrinted;
+	}
+
 	public String getLocation() {
 		return location;
 	}
@@ -38,7 +47,7 @@ public class WarehouseData {
 	}
 	
 	public Object[] getObjectArr() {
-		Object[] objs = {location,technican,partnumber} ;
+		Object[] objs = {location,technican,partnumber,isPrinted} ;
 		return objs;
 	}
 	
