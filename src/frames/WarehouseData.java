@@ -5,7 +5,7 @@ public class WarehouseData {
 	private String location;
 	private String technican;
 	private String partnumber;
-	private Boolean isPrinted = true; 
+	private boolean isPrinted = true; 
 	
 	public WarehouseData(String location, String technican, String partnumber) {
 		super();
@@ -19,11 +19,11 @@ public class WarehouseData {
 	}
 	
 	
-	public Boolean getIsPrinted() {
+	public boolean getIsPrinted() {
 		return isPrinted;
 	}
 
-	public void setIsPrinted(Boolean isPrinted) {
+	public void setIsPrinted(boolean isPrinted) {
 		this.isPrinted = isPrinted;
 	}
 

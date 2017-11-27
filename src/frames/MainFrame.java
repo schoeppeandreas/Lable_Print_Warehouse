@@ -12,12 +12,14 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class MainFrame {
 
 	private JFrame frame;
 	private JTable table;
-	private JTextField textField;
+	private JTextField textFieldNewPN;
+	private List<AllocatedItem> allocatedItems;
 
 	/**
 	 * Launch the application.
@@ -47,46 +49,82 @@ public class MainFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 574, 395);
+		frame.setBounds(100, 100, 844, 502);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton btnButton = new JButton("Load");
 		btnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = new DefaultTableModel();
-				model.addColumn("location");
-				model.addColumn("technican");
-				model.addColumn("partnumber");
-				model.addColumn("isPrinted");
-				
-				List<WarehouseData> arr = new ArrayList<WarehouseData>();
-				
-				arr.add(new WarehouseData("32-10-100","Andreas","DA1245-10-0"));
-				
-				for (WarehouseData warehouseData : arr) {
-					model.addRow(warehouseData.getObjectArr());
+
+				// model.addColumn("APPLICANT");
+				// model.addColumn("IS_KEY_PART");
+				// model.addColumn("LOCATION");
+				// model.addColumn("NEW_PART_DESC");
+				// model.addColumn("NEW_PART_NO");
+				// model.addColumn("RMA_NO");
+				// model.addColumn("REAL_LOCATION");
+
+				// CELL col=8 VALUE=STRING value=APPLICANT
+				// CELL col=32 VALUE=STRING value=IS_KEY_PART
+				// CELL col=43 VALUE=STRING value=LOCATION
+				// CELL col=47 VALUE=STRING value=NEW_PART_DESC
+				// CELL col=48 VALUE=STRING value=NEW_PART_NO
+				// CELL col=86 VALUE=STRING value=RMA_NO
+				// CELL col=89 VALUE=STRING value=REAL_LOCATION
+
+				allocatedItems = new ArrayList<AllocatedItem>();
+				allocatedItems = ReadAllocated.read();
+
+				// 90AZ0080-R90031
+
+				AllocatedItem seachForAllocatedItem = new AllocatedItem();
+				seachForAllocatedItem.setNewPartNo(textFieldNewPN.getText());
+
+				//System.out.println(model.getRowCount()); // set Model to null
+				//System.out.println(allocatedItems.contains(seachForAllocatedItem));
+
+				if (allocatedItems.contains(seachForAllocatedItem)) {
+					
+					for (int i = 0; i < allocatedItems.size(); i++) {
+						AllocatedItem allocatedItem = allocatedItems.get(i);
+						if (i == 0) { // Überschrift ableiten
+							Object[] obj = allocatedItem.getObjectArr();
+							for (int j = 0; j < obj.length; j++) {
+								model.addColumn(obj[j].toString());
+							}
+						} else { // String Daten
+							if(allocatedItem.equals(seachForAllocatedItem)) {
+								model.addRow(allocatedItem.getObjectArr());	
+							}
+						}
+					}
+
+					// for (AllocatedItem allocatedItem : allocatedItems) {
+					// model.addRow(allocatedItem.getObjectArr());
+					// }
 				}
 
 				table.setModel(model);
 
-				//JOptionPane.showMessageDialog(null, textField.getText());
+				// JOptionPane.showMessageDialog(null, textField.getText());
 			}
 		});
 
 		btnButton.setBounds(6, 6, 117, 29);
 		frame.getContentPane().add(btnButton);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(6, 36, 562, 331);
+		scrollPane.setBounds(6, 36, 832, 438);
 		frame.getContentPane().add(scrollPane);
-		
+
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
-		textField = new JTextField();
-		textField.setBounds(126, 6, 204, 26);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+
+		textFieldNewPN = new JTextField();
+		textFieldNewPN.setBounds(126, 6, 241, 26);
+		frame.getContentPane().add(textFieldNewPN);
+		textFieldNewPN.setColumns(10);
 	}
 }
