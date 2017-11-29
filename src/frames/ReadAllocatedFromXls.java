@@ -12,7 +12,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
 
-public class ReadAllocated {
+public class ReadAllocatedFromXls {
 	/**
 	 * creates an {@link HSSFWorkbook} with the specified OS filename.
 	 */
@@ -35,7 +35,7 @@ public class ReadAllocated {
 		
 		List<AllocatedItem> allocatedItems = new ArrayList<>();
 
-		try (HSSFWorkbook wb = ReadAllocated.readFile("allocated.xls")) {
+		try (HSSFWorkbook wb = ReadAllocatedFromXls.readFile("allocated.xls")) {
 			//System.out.println("Data dump:\n");
 			HSSFSheet sheet = wb.getSheetAt(0);
 			int rows = sheet.getPhysicalNumberOfRows();

@@ -64,7 +64,13 @@ public class Tsp400Label_Allocated {
 			sb.append(getTxtLine("I"));
 		}
 		createFile(sb, "label.dat");
-		printFile("cmd.exe /C Label.bat");
+		
+		try {
+			printFile("cmd.exe /C Label.bat");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void printFile(String cmd) {
@@ -77,7 +83,6 @@ public class Tsp400Label_Allocated {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			p.destroy();
