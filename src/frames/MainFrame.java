@@ -51,7 +51,8 @@ public class MainFrame {
 	private void initialize() {
 
 		frmAsusSupportTool = new JFrame();
-		frmAsusSupportTool.setTitle("ASUS Support Tool (lable print for allocated parts) - You need support? Call Andreas.Schoppe@RTS-Services.de");
+		frmAsusSupportTool.setResizable(false);
+		frmAsusSupportTool.setTitle("Support Tool (lable print for allocated parts) - You need support? Call Andreas.Schoeppe@RTS-Services.de");
 		frmAsusSupportTool.setBounds(100, 100, 844, 502);
 		frmAsusSupportTool.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAsusSupportTool.getContentPane().setLayout(null);
