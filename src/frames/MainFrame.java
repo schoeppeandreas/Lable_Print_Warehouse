@@ -61,6 +61,7 @@ public class MainFrame {
 		btnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model = new DefaultTableModel();
+				textFieldNewPN.selectAll();
 				model = ProzessAllocated.printByPnTextSearch(textFieldNewPN.getText());
 				table.setModel(model);
 			}
@@ -83,6 +84,7 @@ public class MainFrame {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode()==KeyEvent.VK_ENTER){ 
 					model = new DefaultTableModel();
+					textFieldNewPN.selectAll();
 					model = ProzessAllocated.printByPnTextSearch(textFieldNewPN.getText());
 					table.setModel(model);
 				}
