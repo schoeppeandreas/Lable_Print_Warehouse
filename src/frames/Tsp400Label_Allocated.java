@@ -28,19 +28,19 @@ public class Tsp400Label_Allocated {
 			
 			//LableID;AbstandLinks;AbstandOben
 			
-			sb.append(getTxtLine("PC01;0005,0005,1,2,4,00,01")); //Applicant
-			sb.append(getTxtLine("PC02;0005,0090,1,2,2,00,02")); //RmaNo
-			sb.append(getTxtLine("PC03;0005,0160,1,2,2,00,02")); //Location
-			sb.append(getTxtLine("PC04;0005,0240,1,2,4,00,02")); //PN No
-			sb.append(getTxtLine("PC05;0005,0380,1,2,1,00,02")); //PN Desc
+			sb.append(getTxtLine("PC01;0020,0005,1,2,4,00,01")); //Applicant
+			sb.append(getTxtLine("PC02;0020,0090,1,2,2,00,02")); //RmaNo
+			sb.append(getTxtLine("PC03;0020,0160,1,2,2,00,02")); //Location
+			sb.append(getTxtLine("PC04;0020,0240,1,2,4,00,02")); //PN No
+			sb.append(getTxtLine("PC05;0020,0380,1,2,1,00,02")); //PN Desc
 			sb.append(getTxtLine("PC06;0560,0720,1,2,2,00,02")); //KeyPart
 			
-			sb.append(getTxtLine("PC07;0005,0440,1,2,4,00,02")); //Replaced
-			sb.append(getTxtLine("PC08;0005,0530,1,2,4,00,02")); //DOA
-			sb.append(getTxtLine("PC09;0005,0620,1,2,4,00,02")); //Gutteil
+			sb.append(getTxtLine("PC07;0020,0440,1,2,4,00,02")); //Replaced
+			sb.append(getTxtLine("PC08;0020,0530,1,2,4,00,02")); //DOA
+			sb.append(getTxtLine("PC09;0020,0620,1,2,4,00,02")); //Gutteil
 			
 			sb.append(getTxtLine("PB00;0400,0090,1,7,0,0050")); //RmaNo Barcode
-			sb.append(getTxtLine("PB01;0005,0310,1,7,0,0060")); //PN No Barcode
+			sb.append(getTxtLine("PB01;0020,0310,1,7,0,0060")); //PN No Barcode
 
 
 			sb.append(getTxtLine("B"));
