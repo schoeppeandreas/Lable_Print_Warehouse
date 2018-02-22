@@ -7,6 +7,7 @@ public class AllocatedItem {
 	private String location;
 	private String newPartDesc;
 	private String newPartNo;
+	private String orgPartNo;
 	private String rmaNo;
 	private String realLocation;
 	
@@ -53,8 +54,18 @@ public class AllocatedItem {
 		this.realLocation = realLocation;
 	}
 	
+	
+	public String getOrgPartNo() {
+		return orgPartNo;
+	}
+	
+	public void setOrgPartNo(String value) {
+		this.orgPartNo = value;
+	}
+	
+	
 	public Object[] getObjectArr() {
-		Object[] objs = {applicant,isKeyPart,location,newPartDesc,newPartNo,rmaNo,realLocation} ;
+		Object[] objs = {applicant,isKeyPart,location,newPartDesc,newPartNo,rmaNo,realLocation,orgPartNo} ;
 		return objs;
 		
 //		CELL col=8 VALUE=STRING value=APPLICANT
@@ -90,7 +101,9 @@ public class AllocatedItem {
 			return false;
 		return true;
 	}
-
 	
+	
+
+
 	
 }

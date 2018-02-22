@@ -31,7 +31,7 @@ public class ReadAllocatedFromXls {
 //		CELL col=48 VALUE=STRING value=NEW_PART_NO
 //		CELL col=86 VALUE=STRING value=RMA_NO
 //		CELL col=89 VALUE=STRING value=REAL_LOCATION
-		List<Integer> intArray = Arrays.asList(8, 32, 43, 47, 48, 86, 89);
+		List<Integer> intArray = Arrays.asList(8, 32, 43, 47, 48, 54, 86, 89);
 		
 		List<AllocatedItem> allocatedItems = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class ReadAllocatedFromXls {
 
 						HSSFCell cell = row.getCell(c);
 						String value = "";
-						//Es wird nur String benötigt, um dies abzusichern der Vergleich.
+						//Es wird nur String benoetigt, um dies abzusichern der Vergleich.
 						if(cell.getCellTypeEnum() == CellType.STRING ) {
 							value = cell.getStringCellValue();
 						}				
@@ -64,6 +64,7 @@ public class ReadAllocatedFromXls {
 							case 43: rowItem.setLocation(value);
 							case 47: rowItem.setNewPartDesc(value);
 							case 48: rowItem.setNewPartNo(value);
+							case 54: rowItem.setOrgPartNo(value);
 							case 86: rowItem.setRmaNo(value);
 							case 89: rowItem.setRealLocation(value);
 						}

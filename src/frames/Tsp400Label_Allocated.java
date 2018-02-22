@@ -24,7 +24,7 @@ public class Tsp400Label_Allocated {
 			sb.append(getTxtLine("#2,0100"));
 			//sb.append(getTxtLine("R2"));
 			sb.append(getTxtLine("C"));
-			sb.append(getTxtLine("D0800"));
+			sb.append(getTxtLine("D0900"));
 			
 			//LableID;AbstandLinks;AbstandOben
 			
@@ -33,16 +33,19 @@ public class Tsp400Label_Allocated {
 			sb.append(getTxtLine("PC03;0020,0160,1,2,2,00,02")); //Location
 			sb.append(getTxtLine("PC04;0020,0240,1,2,4,00,02")); //PN No
 			sb.append(getTxtLine("PC05;0020,0380,1,2,1,00,02")); //PN Desc
-			sb.append(getTxtLine("PC06;0560,0720,1,2,2,00,02")); //KeyPart
+			sb.append(getTxtLine("PC06;0560,0780,1,2,2,00,02")); //KeyPart
 			
 			sb.append(getTxtLine("PC07;0020,0440,1,2,4,00,02")); //Replaced
 			sb.append(getTxtLine("PC08;0020,0530,1,2,4,00,02")); //DOA
 			sb.append(getTxtLine("PC09;0020,0620,1,2,4,00,02")); //Gutteil
 			
 			sb.append(getTxtLine("PB00;0400,0090,1,7,0,0050")); //RmaNo Barcode
-			sb.append(getTxtLine("PB01;0020,0310,1,7,0,0060")); //PN No Barcode
+			sb.append(getTxtLine("PB01;0040,0310,1,7,0,0060")); //PN No Barcode
+			
+			sb.append(getTxtLine("PC10;0020,0710,1,2,2,00,02")); //PN Org No
+			sb.append(getTxtLine("PB02;0040,0780,1,7,0,0060")); //PN Org No Barcode
 
-
+			
 			sb.append(getTxtLine("B"));
 			
 			sb.append(getTxtLine("RC01;" + allocatedItem.getApplicant()));
@@ -56,9 +59,11 @@ public class Tsp400Label_Allocated {
 			sb.append(getTxtLine("RC08;( ) DOA - BAD"));
 			sb.append(getTxtLine("RC09;( ) Gutteil - Good"));
 			
+			sb.append(getTxtLine("RC10;OrgPN:" + allocatedItem.getOrgPartNo()));
 			
 			sb.append(getTxtLine("RB00;" + allocatedItem.getRmaNo()));
 			sb.append(getTxtLine("RB01;" + allocatedItem.getNewPartNo()));
+			sb.append(getTxtLine("RB02;" + allocatedItem.getOrgPartNo()));
 
 
 			sb.append(getTxtLine("I"));
