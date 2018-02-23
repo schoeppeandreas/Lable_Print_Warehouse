@@ -37,12 +37,10 @@ public class ProzessAllocated {
 	public static DefaultTableModel printAllParts() {
 		// Bers Tataev
 		if(printedOnce==1) {
-			
 			int reply = JOptionPane.showConfirmDialog(null, "Du hast bereits gedruckt, willst es nochmal tun?", "Achtung", JOptionPane.YES_NO_OPTION);
 	        if (reply == JOptionPane.NO_OPTION) {
-	        		return null;
+	        		return model;
 	        }
-			
 		}
 		// Bers Tataev
 		
@@ -65,6 +63,17 @@ public class ProzessAllocated {
 	}
 	
 	public static DefaultTableModel printReturnN_Parts () {
+		// Bers Tataev
+		if(printedOnce==1) {
+			
+			int reply = JOptionPane.showConfirmDialog(null, "Du hast bereits gedruckt, willst es nochmal tun?", "Achtung", JOptionPane.YES_NO_OPTION);
+	        if (reply == JOptionPane.NO_OPTION) {
+	        		return model;
+	        }
+			
+		}
+		// Bers Tataev
+		
 		setDefault();
 		for (int i = 0; i < allocatedItems.size(); i++) {
 			AllocatedItem allocatedItem = allocatedItems.get(i);
@@ -81,6 +90,7 @@ public class ProzessAllocated {
 			}
 		}
 		printSelectedAllocatedItems();
+		printedOnce = 1; // Bers Tataev
 		return model;
 	}
 	
@@ -89,7 +99,7 @@ public class ProzessAllocated {
 		if(searchedOnce.contains(newPN) || printedOnce == 1) {	
 			int reply = JOptionPane.showConfirmDialog(null, "Du hast diese Nummer bereits gedruckt, willst es nochmal tun?", "Achtung", JOptionPane.YES_NO_OPTION);
 	        if (reply == JOptionPane.NO_OPTION) {
-	        		return null;
+	        		return model;
 	        }
 			
 		}
